@@ -257,7 +257,7 @@ UIUCTF 2021
 <main role="main">
 <div class="jumbotron">
 <div class="container">
-<h1>Users</h1>
+<h1>Teams</h1>
 </div>
 </div>
 <div class="container">
@@ -268,7 +268,7 @@ UIUCTF 2021
 <select class="form-control custom-select w-100" id="field" name="field" required><option selected value="name">Name</option><option value="affiliation">Affiliation</option><option value="website">Website</option></select>
 </div>
 <div class="form-group col-md-8">
-<input class="form-control w-100" id="q" name="q" placeholder="Search for matching users" required type="text" value="">
+<input class="form-control w-100" id="q" name="q" placeholder="Search for matching teams" required type="text" value="">
 </div>
 <div class="form-group col-md-2">
 <button type="submit" class="btn btn-primary w-100">
@@ -284,7 +284,7 @@ UIUCTF 2021
 <table class="table table-striped">
 <thead>
 <tr>
-<td><b>User</b></td>
+<td><b>Team</b></td>
 <td><b>Website</b></td>
 <td class="d-none d-md-table-cell d-lg-table-cell"><b>Affiliation</b></td>
 <td class="d-none d-md-table-cell d-lg-table-cell"><b>Country</b></td>
@@ -293,444 +293,31 @@ UIUCTF 2021
 <tbody>
 <tr>
 <td>
-<a href="/users/2">
-arxenix
-</a>
+<a href="/teams/114">Maginot</a>
 </td>
 <td class="text-center" style="width: 10px;">
 </td>
 <td class="d-none d-md-table-cell d-lg-table-cell">
 </td>
-<td class="d-none d-md-table-cell d-lg-table-cell">
+<td class="d-none d-md-table-cell d-lg-table-cell text-center">
 <span>
+<i class="flag-cn"></i>
+China
 </span>
 </td>
 </tr>
 <tr>
 <td>
-<a href="/users/3">
-kuilin
-</a>
+<a href="/teams/115">101sec</a>
 </td>
 <td class="text-center" style="width: 10px;">
-</td>
-<td class="d-none d-md-table-cell d-lg-table-cell">
-</td>
-<td class="d-none d-md-table-cell d-lg-table-cell">
-<span>
-</span>
-</td>
-</tr>
-<tr>
-<td>
-<a href="/users/4">
-test_account
-</a>
-</td>
-<td class="text-center" style="width: 10px;">
-</td>
-<td class="d-none d-md-table-cell d-lg-table-cell">
-</td>
-<td class="d-none d-md-table-cell d-lg-table-cell">
-<span>
-</span>
-</td>
-</tr>
-<tr>
-<td>
-<a href="/users/5">
-MapleSyrup
-</a>
-</td>
-<td class="text-center" style="width: 10px;">
-</td>
-<td class="d-none d-md-table-cell d-lg-table-cell">
-</td>
-<td class="d-none d-md-table-cell d-lg-table-cell">
-<span>
-</span>
-</td>
-</tr>
-<tr>
-<td>
-<a href="/users/6">
-Sky
-</a>
-</td>
-<td class="text-center" style="width: 10px;">
-</td>
-<td class="d-none d-md-table-cell d-lg-table-cell">
-</td>
-<td class="d-none d-md-table-cell d-lg-table-cell">
-<span>
-</span>
-</td>
-</tr>
-<tr>
-<td>
-<a href="/users/7">
-roblue
-</a>
-</td>
-<td class="text-center" style="width: 10px;">
-</td>
-<td class="d-none d-md-table-cell d-lg-table-cell">
-</td>
-<td class="d-none d-md-table-cell d-lg-table-cell">
-<span>
-</span>
-</td>
-</tr>
-<tr>
-<td>
-<a href="/users/8">
-flakers
-</a>
-</td>
-<td class="text-center" style="width: 10px;">
-</td>
-<td class="d-none d-md-table-cell d-lg-table-cell">
-</td>
-<td class="d-none d-md-table-cell d-lg-table-cell">
-<span>
-</span>
-</td>
-</tr>
-<tr>
-<td>
-<a href="/users/9">
-Happygator
-</a>
-</td>
-<td class="text-center" style="width: 10px;">
-</td>
-<td class="d-none d-md-table-cell d-lg-table-cell">
-</td>
-<td class="d-none d-md-table-cell d-lg-table-cell">
-<span>
-</span>
-</td>
-</tr>
-<tr>
-<td>
-<a href="/users/10">
-dudnamedcyan
-</a>
-</td>
-<td class="text-center" style="width: 10px;">
-</td>
-<td class="d-none d-md-table-cell d-lg-table-cell">
-</td>
-<td class="d-none d-md-table-cell d-lg-table-cell">
-<span>
-</span>
-</td>
-</tr>
-<tr>
-<td>
-<a href="/users/11">
-ANIRAMESH
-</a>
-</td>
-<td class="text-center" style="width: 10px;">
-</td>
-<td class="d-none d-md-table-cell d-lg-table-cell">
-</td>
-<td class="d-none d-md-table-cell d-lg-table-cell">
-<span>
-</span>
-</td>
-</tr>
-<tr>
-<td>
-<a href="/users/12">
-cupr1c
-</a>
-</td>
-<td class="text-center" style="width: 10px;">
-</td>
-<td class="d-none d-md-table-cell d-lg-table-cell">
-</td>
-<td class="d-none d-md-table-cell d-lg-table-cell">
-<span>
-</span>
-</td>
-</tr>
-<tr>
-<td>
-<a href="/users/13">
-CyberTaskForce Zero
-</a>
-</td>
-<td class="text-center" style="width: 10px;">
-</td>
-<td class="d-none d-md-table-cell d-lg-table-cell">
-</td>
-<td class="d-none d-md-table-cell d-lg-table-cell">
-<span>
-</span>
-</td>
-</tr>
-<tr>
-<td>
-<a href="/users/14">
-cryptocat
-</a>
-</td>
-<td class="text-center" style="width: 10px;">
-</td>
-<td class="d-none d-md-table-cell d-lg-table-cell">
-</td>
-<td class="d-none d-md-table-cell d-lg-table-cell">
-<span>
-</span>
-</td>
-</tr>
-<tr>
-<td>
-<a href="/users/15">
-gol3tron
-</a>
-</td>
-<td class="text-center" style="width: 10px;">
-</td>
-<td class="d-none d-md-table-cell d-lg-table-cell">
-</td>
-<td class="d-none d-md-table-cell d-lg-table-cell">
-<span>
-</span>
-</td>
-</tr>
-<tr>
-<td>
-<a href="/users/16">
-ex4722
-</a>
-</td>
-<td class="text-center" style="width: 10px;">
-</td>
-<td class="d-none d-md-table-cell d-lg-table-cell">
-</td>
-<td class="d-none d-md-table-cell d-lg-table-cell">
-<span>
-</span>
-</td>
-</tr>
-<tr>
-<td>
-<a href="/users/17">
-lazandrei19
-</a>
-</td>
-<td class="text-center" style="width: 10px;">
-</td>
-<td class="d-none d-md-table-cell d-lg-table-cell">
-</td>
-<td class="d-none d-md-table-cell d-lg-table-cell">
-<span>
-</span>
-</td>
-</tr>
-<tr>
-<td>
-<a href="/users/18">
-rguptavh
-</a>
-</td>
-<td class="text-center" style="width: 10px;">
-</td>
-<td class="d-none d-md-table-cell d-lg-table-cell">
-</td>
-<td class="d-none d-md-table-cell d-lg-table-cell">
-<span>
-</span>
-</td>
-</tr>
-<tr>
-<td>
-<a href="/users/19">
-purple
-</a>
-</td>
-<td class="text-center" style="width: 10px;">
-</td>
-<td class="d-none d-md-table-cell d-lg-table-cell">
-</td>
-<td class="d-none d-md-table-cell d-lg-table-cell">
-<span>
-</span>
-</td>
-</tr>
-<tr>
-<td>
-<a href="/users/20">
-En1gma
-</a>
-</td>
-<td class="text-center" style="width: 10px;">
-</td>
-<td class="d-none d-md-table-cell d-lg-table-cell">
-</td>
-<td class="d-none d-md-table-cell d-lg-table-cell">
-<span>
-</span>
-</td>
-</tr>
-<tr>
-<td>
-<a href="/users/21">
-Julian Yang
-</a>
-</td>
-<td class="text-center" style="width: 10px;">
-</td>
-<td class="d-none d-md-table-cell d-lg-table-cell">
-</td>
-<td class="d-none d-md-table-cell d-lg-table-cell">
-<span>
-</span>
-</td>
-</tr>
-<tr>
-<td>
-<a href="/users/22">
-GullyFoyle
-</a>
-</td>
-<td class="text-center" style="width: 10px;">
-</td>
-<td class="d-none d-md-table-cell d-lg-table-cell">
-</td>
-<td class="d-none d-md-table-cell d-lg-table-cell">
-<span>
-</span>
-</td>
-</tr>
-<tr>
-<td>
-<a href="/users/23">
-astro
-</a>
-</td>
-<td class="text-center" style="width: 10px;">
-</td>
-<td class="d-none d-md-table-cell d-lg-table-cell">
-</td>
-<td class="d-none d-md-table-cell d-lg-table-cell">
-<span>
-</span>
-</td>
-</tr>
-<tr>
-<td>
-<a href="/users/24">
-FIREPONY57
-</a>
-</td>
-<td class="text-center" style="width: 10px;">
-</td>
-<td class="d-none d-md-table-cell d-lg-table-cell">
-</td>
-<td class="d-none d-md-table-cell d-lg-table-cell">
-<span>
-</span>
-</td>
-</tr>
-<tr>
-<td>
-<a href="/users/25">
-AvesIratus
-</a>
-</td>
-<td class="text-center" style="width: 10px;">
-</td>
-<td class="d-none d-md-table-cell d-lg-table-cell">
-</td>
-<td class="d-none d-md-table-cell d-lg-table-cell">
-<span>
-</span>
-</td>
-</tr>
-<tr>
-<td>
-<a href="/users/26">
-6r2g4w6rt
-</a>
-</td>
-<td class="text-center" style="width: 10px;">
-</td>
-<td class="d-none d-md-table-cell d-lg-table-cell">
-</td>
-<td class="d-none d-md-table-cell d-lg-table-cell">
-<span>
-</span>
-</td>
-</tr>
-<tr>
-<td>
-<a href="/users/27">
-shlokmehro
-</a>
-</td>
-<td class="text-center" style="width: 10px;">
-</td>
-<td class="d-none d-md-table-cell d-lg-table-cell">
-</td>
-<td class="d-none d-md-table-cell d-lg-table-cell">
-<span>
-</span>
-</td>
-</tr>
-<tr>
-<td>
-<a href="/users/28">
-ian
-</a>
-</td>
-<td class="text-center" style="width: 10px;">
-<a href="https://klatz.co" target="_blank" rel="noopener">
-<i class="fas fa-external-link-alt" data-toggle="tooltip" data-placement="top" title="https://klatz.co"></i>
+<a href="https://101sec.net" target="_blank" rel="noopener">
+<i class="fas fa-external-link-alt" data-toggle="tooltip" data-placement="top" title="https://101sec.net"></i>
 </a>
 </td>
 <td class="d-none d-md-table-cell d-lg-table-cell">
-<span>
-SIGPwny
-</span>
 </td>
-<td class="d-none d-md-table-cell d-lg-table-cell">
-<span>
-</span>
-</td>
-</tr>
-<tr>
-<td>
-<a href="/users/29">
-WhiteHoodHacker
-</a>
-</td>
-<td class="text-center" style="width: 10px;">
-</td>
-<td class="d-none d-md-table-cell d-lg-table-cell">
-</td>
-<td class="d-none d-md-table-cell d-lg-table-cell">
-<span>
-</span>
-</td>
-</tr>
-<tr>
-<td>
-<a href="/users/30">
-myLemonLime
-</a>
-</td>
-<td class="text-center" style="width: 10px;">
-</td>
-<td class="d-none d-md-table-cell d-lg-table-cell">
-<span>
-101sec
-</span>
-</td>
-<td class="d-none d-md-table-cell d-lg-table-cell">
+<td class="d-none d-md-table-cell d-lg-table-cell text-center">
 <span>
 <i class="flag-us"></i>
 United States
@@ -739,325 +326,642 @@ United States
 </tr>
 <tr>
 <td>
-<a href="/users/31">
-Hassy
-</a>
+<a href="/teams/116">etc2020</a>
 </td>
 <td class="text-center" style="width: 10px;">
 </td>
 <td class="d-none d-md-table-cell d-lg-table-cell">
 </td>
-<td class="d-none d-md-table-cell d-lg-table-cell">
-<span>
-<i class="flag-jp"></i>
-Japan
-</span>
-</td>
-</tr>
-<tr>
-<td>
-<a href="/users/32">
-sbs
-</a>
-</td>
-<td class="text-center" style="width: 10px;">
-</td>
-<td class="d-none d-md-table-cell d-lg-table-cell">
-</td>
-<td class="d-none d-md-table-cell d-lg-table-cell">
+<td class="d-none d-md-table-cell d-lg-table-cell text-center">
 <span>
 </span>
 </td>
 </tr>
 <tr>
 <td>
-<a href="/users/33">
-leomessi
-</a>
+<a href="/teams/117">CFH4CK</a>
 </td>
 <td class="text-center" style="width: 10px;">
 </td>
 <td class="d-none d-md-table-cell d-lg-table-cell">
 </td>
+<td class="d-none d-md-table-cell d-lg-table-cell text-center">
+<span>
+<i class="flag-fr"></i>
+France
+</span>
+</td>
+</tr>
+<tr>
+<td>
+<a href="/teams/120">樱花雨</a>
+</td>
+<td class="text-center" style="width: 10px;">
+</td>
 <td class="d-none d-md-table-cell d-lg-table-cell">
+<span>
+UIUC
+</span>
+</td>
+<td class="d-none d-md-table-cell d-lg-table-cell text-center">
+<span>
+<i class="flag-us"></i>
+United States
+</span>
+</td>
+</tr>
+<tr>
+<td>
+<a href="/teams/121">l_key</a>
+</td>
+<td class="text-center" style="width: 10px;">
+</td>
+<td class="d-none d-md-table-cell d-lg-table-cell">
+</td>
+<td class="d-none d-md-table-cell d-lg-table-cell text-center">
 <span>
 </span>
 </td>
 </tr>
 <tr>
 <td>
-<a href="/users/34">
-gdfhrftbg
-</a>
+<a href="/teams/122">5upernova</a>
 </td>
 <td class="text-center" style="width: 10px;">
 </td>
 <td class="d-none d-md-table-cell d-lg-table-cell">
 </td>
-<td class="d-none d-md-table-cell d-lg-table-cell">
+<td class="d-none d-md-table-cell d-lg-table-cell text-center">
 <span>
 </span>
 </td>
 </tr>
 <tr>
 <td>
-<a href="/users/35">
-kgrzk
-</a>
+<a href="/teams/123">The Islanders</a>
 </td>
 <td class="text-center" style="width: 10px;">
 </td>
 <td class="d-none d-md-table-cell d-lg-table-cell">
 </td>
-<td class="d-none d-md-table-cell d-lg-table-cell">
-<span>
-<i class="flag-jp"></i>
-Japan
-</span>
-</td>
-</tr>
-<tr>
-<td>
-<a href="/users/36">
-0xHarsh
-</a>
-</td>
-<td class="text-center" style="width: 10px;">
-</td>
-<td class="d-none d-md-table-cell d-lg-table-cell">
-</td>
-<td class="d-none d-md-table-cell d-lg-table-cell">
+<td class="d-none d-md-table-cell d-lg-table-cell text-center">
 <span>
 </span>
 </td>
 </tr>
 <tr>
 <td>
-<a href="/users/37">
-Mad-Chicken
-</a>
+<a href="/teams/124">CSH</a>
 </td>
 <td class="text-center" style="width: 10px;">
-<a href="http://github.algaea.xyz/" target="_blank" rel="noopener">
-<i class="fas fa-external-link-alt" data-toggle="tooltip" data-placement="top" title="http://github.algaea.xyz/"></i>
-</a>
 </td>
 <td class="d-none d-md-table-cell d-lg-table-cell">
-<span>
-UML
-</span>
 </td>
-<td class="d-none d-md-table-cell d-lg-table-cell">
+<td class="d-none d-md-table-cell d-lg-table-cell text-center">
 <span>
 </span>
 </td>
 </tr>
 <tr>
 <td>
-<a href="/users/38">
-kubectf
-</a>
+<a href="/teams/126">OurHeung</a>
 </td>
 <td class="text-center" style="width: 10px;">
 </td>
 <td class="d-none d-md-table-cell d-lg-table-cell">
 </td>
-<td class="d-none d-md-table-cell d-lg-table-cell">
+<td class="d-none d-md-table-cell d-lg-table-cell text-center">
 <span>
 </span>
 </td>
 </tr>
 <tr>
 <td>
-<a href="/users/39">
-Deathrive
-</a>
+<a href="/teams/127">flib</a>
 </td>
 <td class="text-center" style="width: 10px;">
 </td>
 <td class="d-none d-md-table-cell d-lg-table-cell">
 </td>
-<td class="d-none d-md-table-cell d-lg-table-cell">
+<td class="d-none d-md-table-cell d-lg-table-cell text-center">
 <span>
 </span>
 </td>
 </tr>
 <tr>
 <td>
-<a href="/users/40">
-heasummn
-</a>
+<a href="/teams/128">Soul Hackers</a>
 </td>
 <td class="text-center" style="width: 10px;">
 </td>
 <td class="d-none d-md-table-cell d-lg-table-cell">
 </td>
-<td class="d-none d-md-table-cell d-lg-table-cell">
+<td class="d-none d-md-table-cell d-lg-table-cell text-center">
 <span>
 </span>
 </td>
 </tr>
 <tr>
 <td>
-<a href="/users/41">
-meow
-</a>
+<a href="/teams/129">doneeel</a>
 </td>
 <td class="text-center" style="width: 10px;">
 </td>
 <td class="d-none d-md-table-cell d-lg-table-cell">
 </td>
-<td class="d-none d-md-table-cell d-lg-table-cell">
+<td class="d-none d-md-table-cell d-lg-table-cell text-center">
 <span>
 </span>
 </td>
 </tr>
 <tr>
 <td>
-<a href="/users/42">
-ri5e
-</a>
+<a href="/teams/130">WYE</a>
 </td>
 <td class="text-center" style="width: 10px;">
 </td>
 <td class="d-none d-md-table-cell d-lg-table-cell">
 </td>
-<td class="d-none d-md-table-cell d-lg-table-cell">
+<td class="d-none d-md-table-cell d-lg-table-cell text-center">
 <span>
 </span>
 </td>
 </tr>
 <tr>
 <td>
-<a href="/users/43">
-myth_726
-</a>
+<a href="/teams/131">StackTracers</a>
 </td>
 <td class="text-center" style="width: 10px;">
 </td>
 <td class="d-none d-md-table-cell d-lg-table-cell">
 </td>
-<td class="d-none d-md-table-cell d-lg-table-cell">
+<td class="d-none d-md-table-cell d-lg-table-cell text-center">
 <span>
 </span>
 </td>
 </tr>
 <tr>
 <td>
-<a href="/users/44">
-stackdynamic
-</a>
+<a href="/teams/132">randoms</a>
 </td>
 <td class="text-center" style="width: 10px;">
 </td>
 <td class="d-none d-md-table-cell d-lg-table-cell">
 </td>
-<td class="d-none d-md-table-cell d-lg-table-cell">
+<td class="d-none d-md-table-cell d-lg-table-cell text-center">
 <span>
 </span>
 </td>
 </tr>
 <tr>
 <td>
-<a href="/users/45">
-akun
-</a>
+<a href="/teams/133">Canja The Faria</a>
 </td>
 <td class="text-center" style="width: 10px;">
 </td>
 <td class="d-none d-md-table-cell d-lg-table-cell">
 </td>
-<td class="d-none d-md-table-cell d-lg-table-cell">
+<td class="d-none d-md-table-cell d-lg-table-cell text-center">
 <span>
 </span>
 </td>
 </tr>
 <tr>
 <td>
-<a href="/users/46">
-Cr3on
-</a>
+<a href="/teams/134">Ez4Us</a>
 </td>
 <td class="text-center" style="width: 10px;">
 </td>
 <td class="d-none d-md-table-cell d-lg-table-cell">
 </td>
-<td class="d-none d-md-table-cell d-lg-table-cell">
+<td class="d-none d-md-table-cell d-lg-table-cell text-center">
 <span>
 </span>
 </td>
 </tr>
 <tr>
 <td>
-<a href="/users/47">
-imyxh
-</a>
+<a href="/teams/135">4hem</a>
 </td>
 <td class="text-center" style="width: 10px;">
 </td>
 <td class="d-none d-md-table-cell d-lg-table-cell">
 </td>
-<td class="d-none d-md-table-cell d-lg-table-cell">
+<td class="d-none d-md-table-cell d-lg-table-cell text-center">
 <span>
 </span>
 </td>
 </tr>
 <tr>
 <td>
-<a href="/users/48">
-x9du
-</a>
+<a href="/teams/137">ahengers</a>
 </td>
 <td class="text-center" style="width: 10px;">
 </td>
 <td class="d-none d-md-table-cell d-lg-table-cell">
 </td>
-<td class="d-none d-md-table-cell d-lg-table-cell">
+<td class="d-none d-md-table-cell d-lg-table-cell text-center">
 <span>
 </span>
 </td>
 </tr>
 <tr>
 <td>
-<a href="/users/49">
-benlambertbenlambertbenlambert
-</a>
+<a href="/teams/138">0x000f</a>
 </td>
 <td class="text-center" style="width: 10px;">
 </td>
 <td class="d-none d-md-table-cell d-lg-table-cell">
 </td>
-<td class="d-none d-md-table-cell d-lg-table-cell">
+<td class="d-none d-md-table-cell d-lg-table-cell text-center">
 <span>
 </span>
 </td>
 </tr>
 <tr>
 <td>
-<a href="/users/50">
-nog642
-</a>
+<a href="/teams/139">RPCA Cyber Club</a>
 </td>
 <td class="text-center" style="width: 10px;">
 </td>
 <td class="d-none d-md-table-cell d-lg-table-cell">
 </td>
+<td class="d-none d-md-table-cell d-lg-table-cell text-center">
+<span>
+<i class="flag-th"></i>
+Thailand
+</span>
+</td>
+</tr>
+<tr>
+<td>
+<a href="/teams/140">The0range0rchid</a>
+</td>
+<td class="text-center" style="width: 10px;">
+<a href="https://ctftime.org/team/159317" target="_blank" rel="noopener">
+<i class="fas fa-external-link-alt" data-toggle="tooltip" data-placement="top" title="https://ctftime.org/team/159317"></i>
+</a>
+</td>
 <td class="d-none d-md-table-cell d-lg-table-cell">
+</td>
+<td class="d-none d-md-table-cell d-lg-table-cell text-center">
+<span>
+<i class="flag-fr"></i>
+France
+</span>
+</td>
+</tr>
+<tr>
+<td>
+<a href="/teams/142">Baja</a>
+</td>
+<td class="text-center" style="width: 10px;">
+</td>
+<td class="d-none d-md-table-cell d-lg-table-cell">
+</td>
+<td class="d-none d-md-table-cell d-lg-table-cell text-center">
 <span>
 </span>
 </td>
 </tr>
 <tr>
 <td>
-<a href="/users/51">
-Fayred
-</a>
+<a href="/teams/143">BTeam</a>
 </td>
 <td class="text-center" style="width: 10px;">
 </td>
 <td class="d-none d-md-table-cell d-lg-table-cell">
 </td>
+<td class="d-none d-md-table-cell d-lg-table-cell text-center">
+<span>
+</span>
+</td>
+</tr>
+<tr>
+<td>
+<a href="/teams/144">SpaceSec</a>
+</td>
+<td class="text-center" style="width: 10px;">
+</td>
 <td class="d-none d-md-table-cell d-lg-table-cell">
+</td>
+<td class="d-none d-md-table-cell d-lg-table-cell text-center">
+<span>
+</span>
+</td>
+</tr>
+<tr>
+<td>
+<a href="/teams/145">Tri{Hacking}</a>
+</td>
+<td class="text-center" style="width: 10px;">
+</td>
+<td class="d-none d-md-table-cell d-lg-table-cell">
+</td>
+<td class="d-none d-md-table-cell d-lg-table-cell text-center">
+<span>
+</span>
+</td>
+</tr>
+<tr>
+<td>
+<a href="/teams/146">ARESx</a>
+</td>
+<td class="text-center" style="width: 10px;">
+</td>
+<td class="d-none d-md-table-cell d-lg-table-cell">
+</td>
+<td class="d-none d-md-table-cell d-lg-table-cell text-center">
+<span>
+</span>
+</td>
+</tr>
+<tr>
+<td>
+<a href="/teams/147">slashroot</a>
+</td>
+<td class="text-center" style="width: 10px;">
+</td>
+<td class="d-none d-md-table-cell d-lg-table-cell">
+</td>
+<td class="d-none d-md-table-cell d-lg-table-cell text-center">
+<span>
+</span>
+</td>
+</tr>
+<tr>
+<td>
+<a href="/teams/148">Mad-Chicken</a>
+</td>
+<td class="text-center" style="width: 10px;">
+</td>
+<td class="d-none d-md-table-cell d-lg-table-cell">
+</td>
+<td class="d-none d-md-table-cell d-lg-table-cell text-center">
+<span>
+</span>
+</td>
+</tr>
+<tr>
+<td>
+<a href="/teams/149">T0k</a>
+</td>
+<td class="text-center" style="width: 10px;">
+</td>
+<td class="d-none d-md-table-cell d-lg-table-cell">
+</td>
+<td class="d-none d-md-table-cell d-lg-table-cell text-center">
+<span>
+</span>
+</td>
+</tr>
+<tr>
+<td>
+<a href="/teams/150">ru7ynk4</a>
+</td>
+<td class="text-center" style="width: 10px;">
+</td>
+<td class="d-none d-md-table-cell d-lg-table-cell">
+</td>
+<td class="d-none d-md-table-cell d-lg-table-cell text-center">
+<span>
+</span>
+</td>
+</tr>
+<tr>
+<td>
+<a href="/teams/151">gotU</a>
+</td>
+<td class="text-center" style="width: 10px;">
+</td>
+<td class="d-none d-md-table-cell d-lg-table-cell">
+</td>
+<td class="d-none d-md-table-cell d-lg-table-cell text-center">
+<span>
+</span>
+</td>
+</tr>
+<tr>
+<td>
+<a href="/teams/152">NCTOP</a>
+</td>
+<td class="text-center" style="width: 10px;">
+</td>
+<td class="d-none d-md-table-cell d-lg-table-cell">
+</td>
+<td class="d-none d-md-table-cell d-lg-table-cell text-center">
+<span>
+</span>
+</td>
+</tr>
+<tr>
+<td>
+<a href="/teams/153">+vx: hostfs</a>
+</td>
+<td class="text-center" style="width: 10px;">
+</td>
+<td class="d-none d-md-table-cell d-lg-table-cell">
+</td>
+<td class="d-none d-md-table-cell d-lg-table-cell text-center">
+<span>
+</span>
+</td>
+</tr>
+<tr>
+<td>
+<a href="/teams/154"><span class="__cf_email__" data-cfemail="ce86afada58e9dabad">[email&#160;protected]</span></a>
+</td>
+<td class="text-center" style="width: 10px;">
+</td>
+<td class="d-none d-md-table-cell d-lg-table-cell">
+</td>
+<td class="d-none d-md-table-cell d-lg-table-cell text-center">
+<span>
+</span>
+</td>
+</tr>
+<tr>
+<td>
+<a href="/teams/155">n0n$la$</a>
+</td>
+<td class="text-center" style="width: 10px;">
+</td>
+<td class="d-none d-md-table-cell d-lg-table-cell">
+</td>
+<td class="d-none d-md-table-cell d-lg-table-cell text-center">
+<span>
+</span>
+</td>
+</tr>
+<tr>
+<td>
+<a href="/teams/156">Where are my teamers?</a>
+</td>
+<td class="text-center" style="width: 10px;">
+</td>
+<td class="d-none d-md-table-cell d-lg-table-cell">
+</td>
+<td class="d-none d-md-table-cell d-lg-table-cell text-center">
+<span>
+</span>
+</td>
+</tr>
+<tr>
+<td>
+<a href="/teams/157">UMDCSEC</a>
+</td>
+<td class="text-center" style="width: 10px;">
+</td>
+<td class="d-none d-md-table-cell d-lg-table-cell">
+</td>
+<td class="d-none d-md-table-cell d-lg-table-cell text-center">
+<span>
+</span>
+</td>
+</tr>
+<tr>
+<td>
+<a href="/teams/158">l0wlife</a>
+</td>
+<td class="text-center" style="width: 10px;">
+</td>
+<td class="d-none d-md-table-cell d-lg-table-cell">
+</td>
+<td class="d-none d-md-table-cell d-lg-table-cell text-center">
+<span>
+<i class="flag-br"></i>
+Brazil
+</span>
+</td>
+</tr>
+<tr>
+<td>
+<a href="/teams/159">CSN3RD</a>
+</td>
+<td class="text-center" style="width: 10px;">
+</td>
+<td class="d-none d-md-table-cell d-lg-table-cell">
+</td>
+<td class="d-none d-md-table-cell d-lg-table-cell text-center">
+<span>
+</span>
+</td>
+</tr>
+<tr>
+<td>
+<a href="/teams/160">Nupakachi</a>
+</td>
+<td class="text-center" style="width: 10px;">
+</td>
+<td class="d-none d-md-table-cell d-lg-table-cell">
+</td>
+<td class="d-none d-md-table-cell d-lg-table-cell text-center">
+<span>
+</span>
+</td>
+</tr>
+<tr>
+<td>
+<a href="/teams/161">Gemooy</a>
+</td>
+<td class="text-center" style="width: 10px;">
+</td>
+<td class="d-none d-md-table-cell d-lg-table-cell">
+</td>
+<td class="d-none d-md-table-cell d-lg-table-cell text-center">
+<span>
+</span>
+</td>
+</tr>
+<tr>
+<td>
+<a href="/teams/162">Fs0ciety00</a>
+</td>
+<td class="text-center" style="width: 10px;">
+</td>
+<td class="d-none d-md-table-cell d-lg-table-cell">
+</td>
+<td class="d-none d-md-table-cell d-lg-table-cell text-center">
+<span>
+</span>
+</td>
+</tr>
+<tr>
+<td>
+<a href="/teams/163">TahSec</a>
+</td>
+<td class="text-center" style="width: 10px;">
+</td>
+<td class="d-none d-md-table-cell d-lg-table-cell">
+</td>
+<td class="d-none d-md-table-cell d-lg-table-cell text-center">
+<span>
+</span>
+</td>
+</tr>
+<tr>
+<td>
+<a href="/teams/164">Ju5T_aMat3uR</a>
+</td>
+<td class="text-center" style="width: 10px;">
+</td>
+<td class="d-none d-md-table-cell d-lg-table-cell">
+</td>
+<td class="d-none d-md-table-cell d-lg-table-cell text-center">
+<span>
+</span>
+</td>
+</tr>
+<tr>
+<td>
+<a href="/teams/165">raederwass</a>
+</td>
+<td class="text-center" style="width: 10px;">
+</td>
+<td class="d-none d-md-table-cell d-lg-table-cell">
+</td>
+<td class="d-none d-md-table-cell d-lg-table-cell text-center">
+<span>
+</span>
+</td>
+</tr>
+<tr>
+<td>
+<a href="/teams/166">No S1gn4l</a>
+</td>
+<td class="text-center" style="width: 10px;">
+</td>
+<td class="d-none d-md-table-cell d-lg-table-cell">
+</td>
+<td class="d-none d-md-table-cell d-lg-table-cell text-center">
+<span>
+</span>
+</td>
+</tr>
+<tr>
+<td>
+<a href="/teams/167">5cr1p7_K1dd1es</a>
+</td>
+<td class="text-center" style="width: 10px;">
+</td>
+<td class="d-none d-md-table-cell d-lg-table-cell">
+</td>
+<td class="d-none d-md-table-cell d-lg-table-cell text-center">
+<span>
+<i class="flag-vn"></i>
+Vietnam
+</span>
+</td>
+</tr>
+<tr>
+<td>
+<a href="/teams/168">dau_colony</a>
+</td>
+<td class="text-center" style="width: 10px;">
+</td>
+<td class="d-none d-md-table-cell d-lg-table-cell">
+</td>
+<td class="d-none d-md-table-cell d-lg-table-cell text-center">
 <span>
 </span>
 </td>
@@ -1070,10 +974,11 @@ Fayred
 <div class="col-md-12">
 <div class="text-center">Page
 <br>
+<a href="/teams_page_2">&lt;&lt;&lt;</a>
 <select class="page-select">
-<option selected>1</option>
+<option>1</option>
 <option>2</option>
-<option>3</option>
+<option selected>3</option>
 <option>4</option>
 <option>5</option>
 <option>6</option>
@@ -1093,27 +998,8 @@ Fayred
 <option>20</option>
 <option>21</option>
 <option>22</option>
-<option>23</option>
-<option>24</option>
-<option>25</option>
-<option>26</option>
-<option>27</option>
-<option>28</option>
-<option>29</option>
-<option>30</option>
-<option>31</option>
-<option>32</option>
-<option>33</option>
-<option>34</option>
-<option>35</option>
-<option>36</option>
-<option>37</option>
-<option>38</option>
-<option>39</option>
-<option>40</option>
-<option>41</option>
 </select>
-<a href="/users_page_2">&gt;&gt;&gt;</a>
+<a href="/teams_page_4">&gt;&gt;&gt;</a>
 </div>
 </div>
 </div>
@@ -1126,7 +1012,7 @@ Fayred
 </a>
 </div>
 </footer>
-<script defer src="/themes/core/static/js/vendor.bundle.min.js?d=24c91258"></script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script defer src="/themes/core/static/js/vendor.bundle.min.js?d=24c91258"></script>
 <script defer src="/themes/core/static/js/core.min.js?d=24c91258"></script>
 <script defer src="/themes/core/static/js/helpers.min.js?d=24c91258"></script>
 <script defer src="/themes/core/static/js/pages/main.min.js?d=24c91258"></script>
