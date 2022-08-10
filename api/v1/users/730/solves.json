@@ -1,0 +1,1 @@
+{"success": true, "data": [{"challenge": {"category": "kernel", "value": 205, "name": "insecure_seccomp"}, "challenge_id": 21, "user": 730, "date": "2021-07-31T10:53:34+00:00", "id": 3959, "team": 306, "type": "correct"}]}

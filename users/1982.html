@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>UIUCTF 2021</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="shortcut icon" href="/themes/core/static/img/favicon.ico?d=24c91258" type="image/x-icon">
+<link rel="stylesheet" href="/themes/core/static/css/fonts.min.css?d=24c91258">
+<link rel="stylesheet" href="/themes/core/static/css/main.min.css?d=24c91258">
+<link rel="stylesheet" href="/themes/core/static/css/core.min.css?d=24c91258">
+<script type="text/javascript">
+		var init = {
+			'urlRoot': "",
+			'csrfNonce': "1933659bdee2a35f59f28dd1f22adb3fc1f1cb537f7abc17604059bdd19ac1aa",
+			'userMode': "teams",
+			'userId': 0,
+			'start': 1627689600,
+			'end': 1627862400,
+			'theme_settings': null
+		}
+	</script>
+<meta name="og:title" content="UIUCTF 2021">
+<meta name="og:description" content="Welcome to SIGPwny's UIUCTF!">
+<meta name="og:image" content="https://sigpwny.com/uiuctf/logo.png">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Monoton&display=swap');
+  :root {
+    --chal-unsolved-border: #e6ffa5;
+    --chal-unsolved-drop-shadow: rgba(230, 255, 165, 0.3);
+    --chal-beginner-border: #92ffcc;
+    --chal-beginner-drop-shadow: rgba(146, 255, 204, 0.3);
+    --chal-extreme-border: #671212;
+    --chal-extreme-drop-shadow: rgba(123, 7, 7, 0.3);
+    --chal-solved-a: #7e68f5;
+    --chal-solved-b: rgba(126, 104, 245, 0.3);
+    --graph-bg: rgba(255, 255, 255, 1.0);
+  }
+  body {
+    background-color: #000;
+    background-image: url("https://sigpwny.com/uiuctf.sigpwny.com/background.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+  }
+  /* text color */
+  body,.table {
+    color: #fff;
+  }
+  /* beginner */
+  .tag-beginner button:before, .tag-extreme button:before {
+    position: absolute;
+    z-index: 1000;
+    padding-left: 10px;
+    font-size: 10px;
+    top: 0px;
+    left: 0px;
+  }
+  .tag-beginner button:before {
+    content: "BEGINNER";
+  }
+  .tag-extreme button:before {
+    content: "EXTREME";
+  }
+  .challenge-button {
+    position: relative;
+  }
+  /* solved challenge time ago fix */
+  .modal table {
+    color: initial;
+  }
+  a {
+   /*color: #337ab7;*/
+    color: #3fcbec;
+  }
+  /* modals & cards are still white, so set them back to the original text color */
+  .modal,.card.bg-light,.modal > .table {
+    color: #212529 !important;
+  }
+  /* get rid of navbar bg */
+  /*
+  .navbar, .jumbotron {
+    background-color: transparent !important;
+  }*/
+  .jumbotron {
+    background-color: transparent !important; 
+  }
+  /* make navbar transparent white */
+  .navbar {
+    background-color: rgba(255, 255, 255, 0.1) !important; 
+  }
+  @keyframes flicker {
+    0%,
+    18%,
+    22%,
+    25%,
+    53%,
+    57%,
+    100% {
+      text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #561990,
+        0 0 40px #561990, 0 0 50px #561990, 0 0 60px #561990;
+    }
+
+    20%,
+    24%,
+    55% {
+      text-shadow: none;
+    }
+  }
+  /* style page titles */
+  main > div > div > h1, .flicker-title {
+    font-family: Monoton, monospace;
+    animation: flicker 8s infinite alternate;
+  }
+  /* style category names */
+  .category-header > h3 {
+    font-family: monospace;
+    animation: flicker 5s infinite alternate;
+  }
+  /* challenge buttons */
+  .tag-beginner > button {
+      white-space: nowrap;
+      outline: none;
+      background-color: rgba(146, 255, 204, 0.1);
+      border: 1px solid var(--chal-beginner-border);
+      backdrop-filter: blur(2px); /* chrome only :( */
+      box-shadow: 0px 0px 17px var(--chal-beginner-drop-shadow), 0 0 6px var(--chal-beginner-drop-shadow), 0 0 1px var(--chal-beginner-drop-shadow), 0 0 1px var(--chal-beginner-drop-shadow), 0 0px 8px var(--chal-beginner-drop-shadow), inset 0px 0 8px var(--chal-beginner-drop-shadow), inset 0px 0 15px var(--chal-beginner-drop-shadow);
+  }
+  
+  .tag-beginner > button:hover {
+    box-shadow: 0px 0px 35px var(--chal-beginner-drop-shadow), 0 0 11px var(--chal-beginner-drop-shadow), 0 0 2px var(--chal-beginner-drop-shadow), 0 0 1px var(--chal-beginner-drop-shadow), 0 0px 17px var(--chal-beginner-drop-shadow), inset 0px 0 17px var(--chal-beginner-drop-shadow), inset 0px 0 30px var(--chal-beginner-drop-shadow);
+	border: 1px solid var(--chal-beginner-border);
+    background-color: rgba(146, 255, 204, 0.1);
+  }
+
+  .tag-extreme > button {
+      white-space: nowrap;
+      outline: none;
+      background-color: rgba(146, 255, 204, 0.1);
+      border: 1px solid var(--chal-extreme-border);
+      backdrop-filter: blur(2px); /* chrome only :( */
+      box-shadow: 0px 0px 17px var(--chal-extreme-drop-shadow), 0 0 6px var(--chal-extreme-drop-shadow), 0 0 1px var(--chal-extreme-drop-shadow), 0 0 1px var(--chal-extreme-drop-shadow), 0 0px 8px var(--chal-extreme-drop-shadow), inset 0px 0 8px var(--chal-extreme-drop-shadow), inset 0px 0 15px var(--chal-extreme-drop-shadow);
+  }
+  
+  .tag-extreme > button:hover {
+    box-shadow: 0px 0px 35px var(--chal-extreme-drop-shadow), 0 0 11px var(--chal-extreme-drop-shadow), 0 0 2px var(--chal-extreme-drop-shadow), 0 0 1px var(--chal-extreme-drop-shadow), 0 0px 17px var(--chal-extreme-drop-shadow), inset 0px 0 17px var(--chal-extreme-drop-shadow), inset 0px 0 30px var(--chal-extreme-drop-shadow);
+	border: 1px solid var(--chal-extreme-border);
+    background-color: rgba(146, 255, 204, 0.1);
+  }
+  
+  .challenge-button {
+    white-space: nowrap;
+    outline: none;
+    background-color: rgba(230, 255, 165, 0.1);
+    border: 1px solid var(--chal-unsolved-border);
+    backdrop-filter: blur(2px); /* chrome only :( */
+    box-shadow: 0px 0px 17px var(--chal-unsolved-drop-shadow), 0 0 6px var(--chal-unsolved-drop-shadow), 0 0 1px var(--chal-unsolved-drop-shadow), 0 0 1px var(--chal-unsolved-drop-shadow), 0 0px 8px var(--chal-unsolved-drop-shadow), inset 0px 0 8px var(--chal-unsolved-drop-shadow), inset 0px 0 15px var(--chal-unsolved-drop-shadow);
+  }
+  .challenge-button:hover {
+    box-shadow: 0px 0px 35px var(--chal-unsolved-drop-shadow), 0 0 11px var(--chal-unsolved-drop-shadow), 0 0 2px var(--chal-unsolved-drop-shadow), 0 0 1px var(--chal-unsolved-drop-shadow), 0 0px 17px var(--chal-unsolved-drop-shadow), inset 0px 0 17px var(--chal-unsolved-drop-shadow), inset 0px 0 30px var(--chal-unsolved-drop-shadow);
+	border: 1px solid var(--chal-unsolved-border);
+    background-color: rgba(230, 255, 165, 0.1);
+  }
+  .solved-challenge, .tag-beginner>.solved-challenge, .tag-extreme>.solved-challenge {
+    border: 1px solid var(--chal-solved-a);
+    box-shadow: 0px 0px 17px var(--chal-solved-b), 0 0 6px var(--chal-solved-b), 0 0 1px var(--chal-solved-b), 0 0 1px var(--chal-solved-b), 0 0px 8px var(--chal-solved-b), inset 0px 0 8px var(--chal-solved-b), inset 0px 0 15px var(--chal-solved-b);
+    background-color: transparent !important;
+  }
+  .solved-challenge:hover, .tag-beginner>.solved-challenge:hover, .tag-extreme>.solved-challenge:hover {
+    box-shadow: 0px 0px 35px var(--chal-solved-b), 0 0 11px var(--chal-solved-b), 0 0 2px var(--chal-solved-b), 0 0 1px var(--chal-solved-b), 0 0px 17px var(--chal-solved-b), inset 0px 0 17px var(--chal-solved-b), inset 0px 0 30px var(--chal-solved-b);
+	border: 1px solid var(--chal-solved-a);
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+  
+  /* graphs have gray text on them so we need to make the background lighter :/ */
+  #categories-pie-graph, #keys-pie-graph {
+    background-color: var(--graph-bg);
+    border-radius: 1em;
+  }
+  #score-graph {
+    background-color: var(--graph-bg);
+    border-radius: 1em;
+    margin-top: 4vh;
+  }
+  
+  /* make input backgrounds white instead of transparent (can be hard to read) */
+  .form-control:focus {
+    background-color: #f0f0f0 !important;
+  }
+  .input-filled-invalid, .input-filled-valid {
+    background-color: #f0f0f0 !important;
+  }
+  /* make input text color darker, too light on white bg */
+  .form-control {
+    color: #777;
+  }
+  .flicker-5 {
+    animation: flicker 5s infinite alternate;
+  }
+  .subheader {
+    font-family: Monospace;
+    font-size: 30px;
+    color: #fff;
+    text-align: center;
+  }
+</style>
+</head>
+<body>
+<nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+<div class="container">
+<a href="/" class="navbar-brand">
+UIUCTF 2021
+</a>
+<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#base-navbars" aria-controls="base-navbars" aria-expanded="false" aria-label="Toggle navigation">
+<span class="navbar-toggler-icon"></span>
+</button>
+<div class="collapse navbar-collapse" id="base-navbars">
+<ul class="navbar-nav mr-auto">
+<li class="nav-item">
+<a class="nav-link" href="/users">Users</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="/teams">Teams</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="/scoreboard">Scoreboard</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="/challenges">Challenges</a>
+</li>
+</ul>
+<hr class="d-sm-flex d-md-flex d-lg-none">
+<ul class="navbar-nav ml-md-auto d-block d-sm-flex d-md-flex">
+<li class="nav-item">
+<a class="nav-link" href="/register">
+<span class="d-block" data-toggle="tooltip" data-placement="bottom" title="Register">
+<i class="fas fa-user-plus d-none d-md-block d-lg-none"></i>
+</span>
+<span class="d-sm-block d-md-none d-lg-block">
+<i class="fas fa-user-plus pr-1"></i>Register
+</span>
+</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="/login">
+<span class="d-block" data-toggle="tooltip" data-placement="bottom" title="Login">
+<i class="fas fa-sign-in-alt d-none d-md-block d-lg-none"></i>
+</span>
+<span class="d-sm-block d-md-none d-lg-block">
+<i class="fas fa-sign-in-alt pr-1"></i>Login
+</span>
+</a>
+</li>
+</ul>
+</div>
+</div>
+</nav>
+<main role="main">
+<div class="jumbotron">
+<div class="container">
+<h1>okami</h1>
+<h2>
+<a href="/teams/1121">
+<span class="badge badge-secondary">
+okami
+</span>
+</a>
+</h2>
+<div>
+<h2 class="text-center">
+</h2>
+<h2 class="text-center">
+</h2>
+</div>
+<div class="pt-3">
+</div>
+</div>
+</div>
+<div class="container">
+<div>
+</div>
+<div class="row min-vh-25">
+<h3 class="opacity-50 text-center w-100 justify-content-center align-self-center">
+No solves yet
+</h3>
+</div>
+</div>
+</main>
+<footer class="footer">
+<div class="container text-center">
+<a href="https://ctfd.io" class="text-secondary">
+<small class="text-muted">Powered by CTFd</small>
+</a>
+</div>
+</footer>
+<script defer src="/themes/core/static/js/vendor.bundle.min.js?d=24c91258"></script>
+<script defer src="/themes/core/static/js/core.min.js?d=24c91258"></script>
+<script defer src="/themes/core/static/js/helpers.min.js?d=24c91258"></script>
+<script defer src="/themes/core/static/js/pages/stats.min.js?d=24c91258"></script>
+<script>
+		var stats_data = {"account_id": 1982, "id": 1982, "name": "okami", "type": "user"};
+	</script>
+<script defer src="/themes/core/static/js/echarts.bundle.min.js?d=24c91258"></script>
+<script defer src="/themes/core/static/js/graphs.min.js?d=24c91258"></script>
+<script>
+// Set the date we're counting down to
+(function () {
+var countDownDate = new Date(1627862400000).getTime();
+
+// Update the count down every 1 second
+var interval;
+var update = function () {
+  // Only run on the main page
+  if (!document.getElementById("demo")) return;
+
+  // Get today's date and time
+  var now = new Date().getTime();
+
+  // Find the distance between now and the count down date
+  var distance = countDownDate - now;
+
+  // Time calculations for days, hours, minutes and seconds
+  var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+  var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+  var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+  // Display the result in the element with id="demo"
+  document.getElementById("demo").innerHTML = "UIUCTF ENDS IN " + days + "d "  + hours + "h "
+  + minutes + "m " + seconds + "s ";
+
+  // If the count down is finished, write some text
+  if (distance < 0) {
+    clearInterval(interval);
+    document.getElementById("demo").innerHTML = "UIUCTF HAS ENDED";
+  }
+};
+interval = setInterval(update, 1000);
+update();
+})();
+</script>
+</body>
+</html>

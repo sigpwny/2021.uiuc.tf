@@ -1,0 +1,1176 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>UIUCTF 2021</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="shortcut icon" href="/themes/core/static/img/favicon.ico?d=24c91258" type="image/x-icon">
+<link rel="stylesheet" href="/themes/core/static/css/fonts.min.css?d=24c91258">
+<link rel="stylesheet" href="/themes/core/static/css/main.min.css?d=24c91258">
+<link rel="stylesheet" href="/themes/core/static/css/core.min.css?d=24c91258">
+<script type="text/javascript">
+		var init = {
+			'urlRoot': "",
+			'csrfNonce': "1933659bdee2a35f59f28dd1f22adb3fc1f1cb537f7abc17604059bdd19ac1aa",
+			'userMode': "teams",
+			'userId': 0,
+			'start': 1627689600,
+			'end': 1627862400,
+			'theme_settings': null
+		}
+	</script>
+<meta name="og:title" content="UIUCTF 2021">
+<meta name="og:description" content="Welcome to SIGPwny's UIUCTF!">
+<meta name="og:image" content="https://sigpwny.com/uiuctf/logo.png">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Monoton&display=swap');
+  :root {
+    --chal-unsolved-border: #e6ffa5;
+    --chal-unsolved-drop-shadow: rgba(230, 255, 165, 0.3);
+    --chal-beginner-border: #92ffcc;
+    --chal-beginner-drop-shadow: rgba(146, 255, 204, 0.3);
+    --chal-extreme-border: #671212;
+    --chal-extreme-drop-shadow: rgba(123, 7, 7, 0.3);
+    --chal-solved-a: #7e68f5;
+    --chal-solved-b: rgba(126, 104, 245, 0.3);
+    --graph-bg: rgba(255, 255, 255, 1.0);
+  }
+  body {
+    background-color: #000;
+    background-image: url("https://sigpwny.com/uiuctf.sigpwny.com/background.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+  }
+  /* text color */
+  body,.table {
+    color: #fff;
+  }
+  /* beginner */
+  .tag-beginner button:before, .tag-extreme button:before {
+    position: absolute;
+    z-index: 1000;
+    padding-left: 10px;
+    font-size: 10px;
+    top: 0px;
+    left: 0px;
+  }
+  .tag-beginner button:before {
+    content: "BEGINNER";
+  }
+  .tag-extreme button:before {
+    content: "EXTREME";
+  }
+  .challenge-button {
+    position: relative;
+  }
+  /* solved challenge time ago fix */
+  .modal table {
+    color: initial;
+  }
+  a {
+   /*color: #337ab7;*/
+    color: #3fcbec;
+  }
+  /* modals & cards are still white, so set them back to the original text color */
+  .modal,.card.bg-light,.modal > .table {
+    color: #212529 !important;
+  }
+  /* get rid of navbar bg */
+  /*
+  .navbar, .jumbotron {
+    background-color: transparent !important;
+  }*/
+  .jumbotron {
+    background-color: transparent !important; 
+  }
+  /* make navbar transparent white */
+  .navbar {
+    background-color: rgba(255, 255, 255, 0.1) !important; 
+  }
+  @keyframes flicker {
+    0%,
+    18%,
+    22%,
+    25%,
+    53%,
+    57%,
+    100% {
+      text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #561990,
+        0 0 40px #561990, 0 0 50px #561990, 0 0 60px #561990;
+    }
+
+    20%,
+    24%,
+    55% {
+      text-shadow: none;
+    }
+  }
+  /* style page titles */
+  main > div > div > h1, .flicker-title {
+    font-family: Monoton, monospace;
+    animation: flicker 8s infinite alternate;
+  }
+  /* style category names */
+  .category-header > h3 {
+    font-family: monospace;
+    animation: flicker 5s infinite alternate;
+  }
+  /* challenge buttons */
+  .tag-beginner > button {
+      white-space: nowrap;
+      outline: none;
+      background-color: rgba(146, 255, 204, 0.1);
+      border: 1px solid var(--chal-beginner-border);
+      backdrop-filter: blur(2px); /* chrome only :( */
+      box-shadow: 0px 0px 17px var(--chal-beginner-drop-shadow), 0 0 6px var(--chal-beginner-drop-shadow), 0 0 1px var(--chal-beginner-drop-shadow), 0 0 1px var(--chal-beginner-drop-shadow), 0 0px 8px var(--chal-beginner-drop-shadow), inset 0px 0 8px var(--chal-beginner-drop-shadow), inset 0px 0 15px var(--chal-beginner-drop-shadow);
+  }
+  
+  .tag-beginner > button:hover {
+    box-shadow: 0px 0px 35px var(--chal-beginner-drop-shadow), 0 0 11px var(--chal-beginner-drop-shadow), 0 0 2px var(--chal-beginner-drop-shadow), 0 0 1px var(--chal-beginner-drop-shadow), 0 0px 17px var(--chal-beginner-drop-shadow), inset 0px 0 17px var(--chal-beginner-drop-shadow), inset 0px 0 30px var(--chal-beginner-drop-shadow);
+	border: 1px solid var(--chal-beginner-border);
+    background-color: rgba(146, 255, 204, 0.1);
+  }
+
+  .tag-extreme > button {
+      white-space: nowrap;
+      outline: none;
+      background-color: rgba(146, 255, 204, 0.1);
+      border: 1px solid var(--chal-extreme-border);
+      backdrop-filter: blur(2px); /* chrome only :( */
+      box-shadow: 0px 0px 17px var(--chal-extreme-drop-shadow), 0 0 6px var(--chal-extreme-drop-shadow), 0 0 1px var(--chal-extreme-drop-shadow), 0 0 1px var(--chal-extreme-drop-shadow), 0 0px 8px var(--chal-extreme-drop-shadow), inset 0px 0 8px var(--chal-extreme-drop-shadow), inset 0px 0 15px var(--chal-extreme-drop-shadow);
+  }
+  
+  .tag-extreme > button:hover {
+    box-shadow: 0px 0px 35px var(--chal-extreme-drop-shadow), 0 0 11px var(--chal-extreme-drop-shadow), 0 0 2px var(--chal-extreme-drop-shadow), 0 0 1px var(--chal-extreme-drop-shadow), 0 0px 17px var(--chal-extreme-drop-shadow), inset 0px 0 17px var(--chal-extreme-drop-shadow), inset 0px 0 30px var(--chal-extreme-drop-shadow);
+	border: 1px solid var(--chal-extreme-border);
+    background-color: rgba(146, 255, 204, 0.1);
+  }
+  
+  .challenge-button {
+    white-space: nowrap;
+    outline: none;
+    background-color: rgba(230, 255, 165, 0.1);
+    border: 1px solid var(--chal-unsolved-border);
+    backdrop-filter: blur(2px); /* chrome only :( */
+    box-shadow: 0px 0px 17px var(--chal-unsolved-drop-shadow), 0 0 6px var(--chal-unsolved-drop-shadow), 0 0 1px var(--chal-unsolved-drop-shadow), 0 0 1px var(--chal-unsolved-drop-shadow), 0 0px 8px var(--chal-unsolved-drop-shadow), inset 0px 0 8px var(--chal-unsolved-drop-shadow), inset 0px 0 15px var(--chal-unsolved-drop-shadow);
+  }
+  .challenge-button:hover {
+    box-shadow: 0px 0px 35px var(--chal-unsolved-drop-shadow), 0 0 11px var(--chal-unsolved-drop-shadow), 0 0 2px var(--chal-unsolved-drop-shadow), 0 0 1px var(--chal-unsolved-drop-shadow), 0 0px 17px var(--chal-unsolved-drop-shadow), inset 0px 0 17px var(--chal-unsolved-drop-shadow), inset 0px 0 30px var(--chal-unsolved-drop-shadow);
+	border: 1px solid var(--chal-unsolved-border);
+    background-color: rgba(230, 255, 165, 0.1);
+  }
+  .solved-challenge, .tag-beginner>.solved-challenge, .tag-extreme>.solved-challenge {
+    border: 1px solid var(--chal-solved-a);
+    box-shadow: 0px 0px 17px var(--chal-solved-b), 0 0 6px var(--chal-solved-b), 0 0 1px var(--chal-solved-b), 0 0 1px var(--chal-solved-b), 0 0px 8px var(--chal-solved-b), inset 0px 0 8px var(--chal-solved-b), inset 0px 0 15px var(--chal-solved-b);
+    background-color: transparent !important;
+  }
+  .solved-challenge:hover, .tag-beginner>.solved-challenge:hover, .tag-extreme>.solved-challenge:hover {
+    box-shadow: 0px 0px 35px var(--chal-solved-b), 0 0 11px var(--chal-solved-b), 0 0 2px var(--chal-solved-b), 0 0 1px var(--chal-solved-b), 0 0px 17px var(--chal-solved-b), inset 0px 0 17px var(--chal-solved-b), inset 0px 0 30px var(--chal-solved-b);
+	border: 1px solid var(--chal-solved-a);
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+  
+  /* graphs have gray text on them so we need to make the background lighter :/ */
+  #categories-pie-graph, #keys-pie-graph {
+    background-color: var(--graph-bg);
+    border-radius: 1em;
+  }
+  #score-graph {
+    background-color: var(--graph-bg);
+    border-radius: 1em;
+    margin-top: 4vh;
+  }
+  
+  /* make input backgrounds white instead of transparent (can be hard to read) */
+  .form-control:focus {
+    background-color: #f0f0f0 !important;
+  }
+  .input-filled-invalid, .input-filled-valid {
+    background-color: #f0f0f0 !important;
+  }
+  /* make input text color darker, too light on white bg */
+  .form-control {
+    color: #777;
+  }
+  .flicker-5 {
+    animation: flicker 5s infinite alternate;
+  }
+  .subheader {
+    font-family: Monospace;
+    font-size: 30px;
+    color: #fff;
+    text-align: center;
+  }
+</style>
+</head>
+<body>
+<nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+<div class="container">
+<a href="/" class="navbar-brand">
+UIUCTF 2021
+</a>
+<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#base-navbars" aria-controls="base-navbars" aria-expanded="false" aria-label="Toggle navigation">
+<span class="navbar-toggler-icon"></span>
+</button>
+<div class="collapse navbar-collapse" id="base-navbars">
+<ul class="navbar-nav mr-auto">
+<li class="nav-item">
+<a class="nav-link" href="/users">Users</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="/teams">Teams</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="/scoreboard">Scoreboard</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="/challenges">Challenges</a>
+</li>
+</ul>
+<hr class="d-sm-flex d-md-flex d-lg-none">
+<ul class="navbar-nav ml-md-auto d-block d-sm-flex d-md-flex">
+<li class="nav-item">
+<a class="nav-link" href="/register">
+<span class="d-block" data-toggle="tooltip" data-placement="bottom" title="Register">
+<i class="fas fa-user-plus d-none d-md-block d-lg-none"></i>
+</span>
+<span class="d-sm-block d-md-none d-lg-block">
+<i class="fas fa-user-plus pr-1"></i>Register
+</span>
+</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="/login">
+<span class="d-block" data-toggle="tooltip" data-placement="bottom" title="Login">
+<i class="fas fa-sign-in-alt d-none d-md-block d-lg-none"></i>
+</span>
+<span class="d-sm-block d-md-none d-lg-block">
+<i class="fas fa-sign-in-alt pr-1"></i>Login
+</span>
+</a>
+</li>
+</ul>
+</div>
+</div>
+</nav>
+<main role="main">
+<div class="jumbotron">
+<div class="container">
+<h1>Users</h1>
+</div>
+</div>
+<div class="container">
+<div class="row">
+<div class="col-md-12">
+<form method="GET" class="form-inline">
+<div class="form-group col-md-2">
+<select class="form-control custom-select w-100" id="field" name="field" required><option selected value="name">Name</option><option value="affiliation">Affiliation</option><option value="website">Website</option></select>
+</div>
+<div class="form-group col-md-8">
+<input class="form-control w-100" id="q" name="q" placeholder="Search for matching users" required type="text" value="">
+</div>
+<div class="form-group col-md-2">
+<button type="submit" class="btn btn-primary w-100">
+<i class="fas fa-search" aria-hidden="true"></i>
+</button>
+</div>
+</form>
+</div>
+</div>
+<hr>
+<div class="row">
+<div class="col-md-12">
+<table class="table table-striped">
+<thead>
+<tr>
+<td><b>User</b></td>
+<td><b>Website</b></td>
+<td class="d-none d-md-table-cell d-lg-table-cell"><b>Affiliation</b></td>
+<td class="d-none d-md-table-cell d-lg-table-cell"><b>Country</b></td>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="/users/52">
+ZeroTechSec
+</a>
+</td>
+<td class="text-center" style="width: 10px;">
+</td>
+<td class="d-none d-md-table-cell d-lg-table-cell">
+</td>
+<td class="d-none d-md-table-cell d-lg-table-cell">
+<span>
+</span>
+</td>
+</tr>
+<tr>
+<td>
+<a href="/users/53">
+t000
+</a>
+</td>
+<td class="text-center" style="width: 10px;">
+</td>
+<td class="d-none d-md-table-cell d-lg-table-cell">
+</td>
+<td class="d-none d-md-table-cell d-lg-table-cell">
+<span>
+</span>
+</td>
+</tr>
+<tr>
+<td>
+<a href="/users/54">
+Rust-tee
+</a>
+</td>
+<td class="text-center" style="width: 10px;">
+</td>
+<td class="d-none d-md-table-cell d-lg-table-cell">
+</td>
+<td class="d-none d-md-table-cell d-lg-table-cell">
+<span>
+</span>
+</td>
+</tr>
+<tr>
+<td>
+<a href="/users/55">
+rgk013
+</a>
+</td>
+<td class="text-center" style="width: 10px;">
+</td>
+<td class="d-none d-md-table-cell d-lg-table-cell">
+</td>
+<td class="d-none d-md-table-cell d-lg-table-cell">
+<span>
+</span>
+</td>
+</tr>
+<tr>
+<td>
+<a href="/users/56">
+fozi6044
+</a>
+</td>
+<td class="text-center" style="width: 10px;">
+</td>
+<td class="d-none d-md-table-cell d-lg-table-cell">
+</td>
+<td class="d-none d-md-table-cell d-lg-table-cell">
+<span>
+<i class="flag-pk"></i>
+Pakistan
+</span>
+</td>
+</tr>
+<tr>
+<td>
+<a href="/users/57">
+Ninjacornix
+</a>
+</td>
+<td class="text-center" style="width: 10px;">
+</td>
+<td class="d-none d-md-table-cell d-lg-table-cell">
+</td>
+<td class="d-none d-md-table-cell d-lg-table-cell">
+<span>
+<i class="flag-hr"></i>
+Croatia
+</span>
+</td>
+</tr>
+<tr>
+<td>
+<a href="/users/58">
+kjkardum
+</a>
+</td>
+<td class="text-center" style="width: 10px;">
+</td>
+<td class="d-none d-md-table-cell d-lg-table-cell">
+</td>
+<td class="d-none d-md-table-cell d-lg-table-cell">
+<span>
+</span>
+</td>
+</tr>
+<tr>
+<td>
+<a href="/users/59">
+Hoax
+</a>
+</td>
+<td class="text-center" style="width: 10px;">
+</td>
+<td class="d-none d-md-table-cell d-lg-table-cell">
+</td>
+<td class="d-none d-md-table-cell d-lg-table-cell">
+<span>
+<i class="flag-il"></i>
+Israel
+</span>
+</td>
+</tr>
+<tr>
+<td>
+<a href="/users/60">
+nitko12
+</a>
+</td>
+<td class="text-center" style="width: 10px;">
+</td>
+<td class="d-none d-md-table-cell d-lg-table-cell">
+</td>
+<td class="d-none d-md-table-cell d-lg-table-cell">
+<span>
+</span>
+</td>
+</tr>
+<tr>
+<td>
+<a href="/users/61">
+ultimatesicko
+</a>
+</td>
+<td class="text-center" style="width: 10px;">
+</td>
+<td class="d-none d-md-table-cell d-lg-table-cell">
+</td>
+<td class="d-none d-md-table-cell d-lg-table-cell">
+<span>
+</span>
+</td>
+</tr>
+<tr>
+<td>
+<a href="/users/62">
+r3dact0r
+</a>
+</td>
+<td class="text-center" style="width: 10px;">
+</td>
+<td class="d-none d-md-table-cell d-lg-table-cell">
+</td>
+<td class="d-none d-md-table-cell d-lg-table-cell">
+<span>
+</span>
+</td>
+</tr>
+<tr>
+<td>
+<a href="/users/63">
+domose
+</a>
+</td>
+<td class="text-center" style="width: 10px;">
+</td>
+<td class="d-none d-md-table-cell d-lg-table-cell">
+</td>
+<td class="d-none d-md-table-cell d-lg-table-cell">
+<span>
+</span>
+</td>
+</tr>
+<tr>
+<td>
+<a href="/users/64">
+sanglap
+</a>
+</td>
+<td class="text-center" style="width: 10px;">
+</td>
+<td class="d-none d-md-table-cell d-lg-table-cell">
+</td>
+<td class="d-none d-md-table-cell d-lg-table-cell">
+<span>
+</span>
+</td>
+</tr>
+<tr>
+<td>
+<a href="/users/65">
+Legoclones
+</a>
+</td>
+<td class="text-center" style="width: 10px;">
+</td>
+<td class="d-none d-md-table-cell d-lg-table-cell">
+</td>
+<td class="d-none d-md-table-cell d-lg-table-cell">
+<span>
+<i class="flag-us"></i>
+United States
+</span>
+</td>
+</tr>
+<tr>
+<td>
+<a href="/users/66">
+pwn0x80
+</a>
+</td>
+<td class="text-center" style="width: 10px;">
+</td>
+<td class="d-none d-md-table-cell d-lg-table-cell">
+</td>
+<td class="d-none d-md-table-cell d-lg-table-cell">
+<span>
+</span>
+</td>
+</tr>
+<tr>
+<td>
+<a href="/users/67">
+elleven11
+</a>
+</td>
+<td class="text-center" style="width: 10px;">
+</td>
+<td class="d-none d-md-table-cell d-lg-table-cell">
+</td>
+<td class="d-none d-md-table-cell d-lg-table-cell">
+<span>
+</span>
+</td>
+</tr>
+<tr>
+<td>
+<a href="/users/68">
+geekroot
+</a>
+</td>
+<td class="text-center" style="width: 10px;">
+</td>
+<td class="d-none d-md-table-cell d-lg-table-cell">
+</td>
+<td class="d-none d-md-table-cell d-lg-table-cell">
+<span>
+</span>
+</td>
+</tr>
+<tr>
+<td>
+<a href="/users/69">
+Lucy666
+</a>
+</td>
+<td class="text-center" style="width: 10px;">
+</td>
+<td class="d-none d-md-table-cell d-lg-table-cell">
+</td>
+<td class="d-none d-md-table-cell d-lg-table-cell">
+<span>
+<i class="flag-in"></i>
+India
+</span>
+</td>
+</tr>
+<tr>
+<td>
+<a href="/users/70">
+Da3v1L
+</a>
+</td>
+<td class="text-center" style="width: 10px;">
+</td>
+<td class="d-none d-md-table-cell d-lg-table-cell">
+</td>
+<td class="d-none d-md-table-cell d-lg-table-cell">
+<span>
+</span>
+</td>
+</tr>
+<tr>
+<td>
+<a href="/users/71">
+azwa
+</a>
+</td>
+<td class="text-center" style="width: 10px;">
+</td>
+<td class="d-none d-md-table-cell d-lg-table-cell">
+</td>
+<td class="d-none d-md-table-cell d-lg-table-cell">
+<span>
+</span>
+</td>
+</tr>
+<tr>
+<td>
+<a href="/users/72">
+kuroyasha999
+</a>
+</td>
+<td class="text-center" style="width: 10px;">
+</td>
+<td class="d-none d-md-table-cell d-lg-table-cell">
+</td>
+<td class="d-none d-md-table-cell d-lg-table-cell">
+<span>
+</span>
+</td>
+</tr>
+<tr>
+<td>
+<a href="/users/73">
+Mayas
+</a>
+</td>
+<td class="text-center" style="width: 10px;">
+</td>
+<td class="d-none d-md-table-cell d-lg-table-cell">
+</td>
+<td class="d-none d-md-table-cell d-lg-table-cell">
+<span>
+</span>
+</td>
+</tr>
+<tr>
+<td>
+<a href="/users/74">
+r3Z3l
+</a>
+</td>
+<td class="text-center" style="width: 10px;">
+</td>
+<td class="d-none d-md-table-cell d-lg-table-cell">
+</td>
+<td class="d-none d-md-table-cell d-lg-table-cell">
+<span>
+</span>
+</td>
+</tr>
+<tr>
+<td>
+<a href="/users/75">
+wyl3waK
+</a>
+</td>
+<td class="text-center" style="width: 10px;">
+<a href="https://ctftime.org/team/157027" target="_blank" rel="noopener">
+<i class="fas fa-external-link-alt" data-toggle="tooltip" data-placement="top" title="https://ctftime.org/team/157027"></i>
+</a>
+</td>
+<td class="d-none d-md-table-cell d-lg-table-cell">
+</td>
+<td class="d-none d-md-table-cell d-lg-table-cell">
+<span>
+<i class="flag-us"></i>
+United States
+</span>
+</td>
+</tr>
+<tr>
+<td>
+<a href="/users/76">
+MushroomSugarGingerALE
+</a>
+</td>
+<td class="text-center" style="width: 10px;">
+</td>
+<td class="d-none d-md-table-cell d-lg-table-cell">
+</td>
+<td class="d-none d-md-table-cell d-lg-table-cell">
+<span>
+</span>
+</td>
+</tr>
+<tr>
+<td>
+<a href="/users/77">
+thehackerscrew
+</a>
+</td>
+<td class="text-center" style="width: 10px;">
+</td>
+<td class="d-none d-md-table-cell d-lg-table-cell">
+</td>
+<td class="d-none d-md-table-cell d-lg-table-cell">
+<span>
+</span>
+</td>
+</tr>
+<tr>
+<td>
+<a href="/users/78">
+Tripaloski0x29A
+</a>
+</td>
+<td class="text-center" style="width: 10px;">
+</td>
+<td class="d-none d-md-table-cell d-lg-table-cell">
+</td>
+<td class="d-none d-md-table-cell d-lg-table-cell">
+<span>
+<i class="flag-rs"></i>
+Serbia
+</span>
+</td>
+</tr>
+<tr>
+<td>
+<a href="/users/79">
+DDLJ
+</a>
+</td>
+<td class="text-center" style="width: 10px;">
+</td>
+<td class="d-none d-md-table-cell d-lg-table-cell">
+</td>
+<td class="d-none d-md-table-cell d-lg-table-cell">
+<span>
+</span>
+</td>
+</tr>
+<tr>
+<td>
+<a href="/users/80">
+3nc0d3dGuY
+</a>
+</td>
+<td class="text-center" style="width: 10px;">
+</td>
+<td class="d-none d-md-table-cell d-lg-table-cell">
+</td>
+<td class="d-none d-md-table-cell d-lg-table-cell">
+<span>
+</span>
+</td>
+</tr>
+<tr>
+<td>
+<a href="/users/81">
+Encrypt3d Pois0n
+</a>
+</td>
+<td class="text-center" style="width: 10px;">
+</td>
+<td class="d-none d-md-table-cell d-lg-table-cell">
+</td>
+<td class="d-none d-md-table-cell d-lg-table-cell">
+<span>
+</span>
+</td>
+</tr>
+<tr>
+<td>
+<a href="/users/82">
+bob123
+</a>
+</td>
+<td class="text-center" style="width: 10px;">
+</td>
+<td class="d-none d-md-table-cell d-lg-table-cell">
+</td>
+<td class="d-none d-md-table-cell d-lg-table-cell">
+<span>
+</span>
+</td>
+</tr>
+<tr>
+<td>
+<a href="/users/83">
+fzhshzh
+</a>
+</td>
+<td class="text-center" style="width: 10px;">
+</td>
+<td class="d-none d-md-table-cell d-lg-table-cell">
+</td>
+<td class="d-none d-md-table-cell d-lg-table-cell">
+<span>
+</span>
+</td>
+</tr>
+<tr>
+<td>
+<a href="/users/84">
+Practice
+</a>
+</td>
+<td class="text-center" style="width: 10px;">
+</td>
+<td class="d-none d-md-table-cell d-lg-table-cell">
+</td>
+<td class="d-none d-md-table-cell d-lg-table-cell">
+<span>
+</span>
+</td>
+</tr>
+<tr>
+<td>
+<a href="/users/85">
+bezpecarna
+</a>
+</td>
+<td class="text-center" style="width: 10px;">
+</td>
+<td class="d-none d-md-table-cell d-lg-table-cell">
+</td>
+<td class="d-none d-md-table-cell d-lg-table-cell">
+<span>
+</span>
+</td>
+</tr>
+<tr>
+<td>
+<a href="/users/86">
+voynz
+</a>
+</td>
+<td class="text-center" style="width: 10px;">
+</td>
+<td class="d-none d-md-table-cell d-lg-table-cell">
+</td>
+<td class="d-none d-md-table-cell d-lg-table-cell">
+<span>
+</span>
+</td>
+</tr>
+<tr>
+<td>
+<a href="/users/87">
+brz
+</a>
+</td>
+<td class="text-center" style="width: 10px;">
+</td>
+<td class="d-none d-md-table-cell d-lg-table-cell">
+</td>
+<td class="d-none d-md-table-cell d-lg-table-cell">
+<span>
+</span>
+</td>
+</tr>
+<tr>
+<td>
+<a href="/users/88">
+Xenonminer
+</a>
+</td>
+<td class="text-center" style="width: 10px;">
+</td>
+<td class="d-none d-md-table-cell d-lg-table-cell">
+</td>
+<td class="d-none d-md-table-cell d-lg-table-cell">
+<span>
+</span>
+</td>
+</tr>
+<tr>
+<td>
+<a href="/users/89">
+ioe
+</a>
+</td>
+<td class="text-center" style="width: 10px;">
+</td>
+<td class="d-none d-md-table-cell d-lg-table-cell">
+</td>
+<td class="d-none d-md-table-cell d-lg-table-cell">
+<span>
+</span>
+</td>
+</tr>
+<tr>
+<td>
+<a href="/users/90">
+13hunteo
+</a>
+</td>
+<td class="text-center" style="width: 10px;">
+<a href="https://owenhunter.me" target="_blank" rel="noopener">
+<i class="fas fa-external-link-alt" data-toggle="tooltip" data-placement="top" title="https://owenhunter.me"></i>
+</a>
+</td>
+<td class="d-none d-md-table-cell d-lg-table-cell">
+</td>
+<td class="d-none d-md-table-cell d-lg-table-cell">
+<span>
+</span>
+</td>
+</tr>
+<tr>
+<td>
+<a href="/users/91">
+acdwas
+</a>
+</td>
+<td class="text-center" style="width: 10px;">
+</td>
+<td class="d-none d-md-table-cell d-lg-table-cell">
+</td>
+<td class="d-none d-md-table-cell d-lg-table-cell">
+<span>
+<i class="flag-pl"></i>
+Poland
+</span>
+</td>
+</tr>
+<tr>
+<td>
+<a href="/users/92">
+Arsonic
+</a>
+</td>
+<td class="text-center" style="width: 10px;">
+</td>
+<td class="d-none d-md-table-cell d-lg-table-cell">
+<span>
+3PAC
+</span>
+</td>
+<td class="d-none d-md-table-cell d-lg-table-cell">
+<span>
+</span>
+</td>
+</tr>
+<tr>
+<td>
+<a href="/users/93">
+BTUesMACHARU
+</a>
+</td>
+<td class="text-center" style="width: 10px;">
+</td>
+<td class="d-none d-md-table-cell d-lg-table-cell">
+</td>
+<td class="d-none d-md-table-cell d-lg-table-cell">
+<span>
+</span>
+</td>
+</tr>
+<tr>
+<td>
+<a href="/users/94">
+kledh
+</a>
+</td>
+<td class="text-center" style="width: 10px;">
+</td>
+<td class="d-none d-md-table-cell d-lg-table-cell">
+</td>
+<td class="d-none d-md-table-cell d-lg-table-cell">
+<span>
+</span>
+</td>
+</tr>
+<tr>
+<td>
+<a href="/users/95">
+mcjcloud
+</a>
+</td>
+<td class="text-center" style="width: 10px;">
+</td>
+<td class="d-none d-md-table-cell d-lg-table-cell">
+</td>
+<td class="d-none d-md-table-cell d-lg-table-cell">
+<span>
+</span>
+</td>
+</tr>
+<tr>
+<td>
+<a href="/users/96">
+M_Nx01
+</a>
+</td>
+<td class="text-center" style="width: 10px;">
+</td>
+<td class="d-none d-md-table-cell d-lg-table-cell">
+</td>
+<td class="d-none d-md-table-cell d-lg-table-cell">
+<span>
+</span>
+</td>
+</tr>
+<tr>
+<td>
+<a href="/users/97">
+xbowery
+</a>
+</td>
+<td class="text-center" style="width: 10px;">
+</td>
+<td class="d-none d-md-table-cell d-lg-table-cell">
+</td>
+<td class="d-none d-md-table-cell d-lg-table-cell">
+<span>
+</span>
+</td>
+</tr>
+<tr>
+<td>
+<a href="/users/98">
+NoahZhao
+</a>
+</td>
+<td class="text-center" style="width: 10px;">
+</td>
+<td class="d-none d-md-table-cell d-lg-table-cell">
+</td>
+<td class="d-none d-md-table-cell d-lg-table-cell">
+<span>
+</span>
+</td>
+</tr>
+<tr>
+<td>
+<a href="/users/99">
+0xDoge
+</a>
+</td>
+<td class="text-center" style="width: 10px;">
+</td>
+<td class="d-none d-md-table-cell d-lg-table-cell">
+</td>
+<td class="d-none d-md-table-cell d-lg-table-cell">
+<span>
+</span>
+</td>
+</tr>
+<tr>
+<td>
+<a href="/users/100">
+yoyo
+</a>
+</td>
+<td class="text-center" style="width: 10px;">
+</td>
+<td class="d-none d-md-table-cell d-lg-table-cell">
+</td>
+<td class="d-none d-md-table-cell d-lg-table-cell">
+<span>
+</span>
+</td>
+</tr>
+<tr>
+<td>
+<a href="/users/101">
+georgezhu
+</a>
+</td>
+<td class="text-center" style="width: 10px;">
+</td>
+<td class="d-none d-md-table-cell d-lg-table-cell">
+</td>
+<td class="d-none d-md-table-cell d-lg-table-cell">
+<span>
+</span>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="row">
+<div class="col-md-12">
+<div class="text-center">Page
+<br>
+<a href="/users?page=1">&lt;&lt;&lt;</a>
+<select class="page-select">
+<option>1</option>
+<option selected>2</option>
+<option>3</option>
+<option>4</option>
+<option>5</option>
+<option>6</option>
+<option>7</option>
+<option>8</option>
+<option>9</option>
+<option>10</option>
+<option>11</option>
+<option>12</option>
+<option>13</option>
+<option>14</option>
+<option>15</option>
+<option>16</option>
+<option>17</option>
+<option>18</option>
+<option>19</option>
+<option>20</option>
+<option>21</option>
+<option>22</option>
+<option>23</option>
+<option>24</option>
+<option>25</option>
+<option>26</option>
+<option>27</option>
+<option>28</option>
+<option>29</option>
+<option>30</option>
+<option>31</option>
+<option>32</option>
+<option>33</option>
+<option>34</option>
+<option>35</option>
+<option>36</option>
+<option>37</option>
+<option>38</option>
+<option>39</option>
+<option>40</option>
+<option>41</option>
+</select>
+<a href="/users?page=3">&gt;&gt;&gt;</a>
+</div>
+</div>
+</div>
+</div>
+</main>
+<footer class="footer">
+<div class="container text-center">
+<a href="https://ctfd.io" class="text-secondary">
+<small class="text-muted">Powered by CTFd</small>
+</a>
+</div>
+</footer>
+<script defer src="/themes/core/static/js/vendor.bundle.min.js?d=24c91258"></script>
+<script defer src="/themes/core/static/js/core.min.js?d=24c91258"></script>
+<script defer src="/themes/core/static/js/helpers.min.js?d=24c91258"></script>
+<script defer src="/themes/core/static/js/pages/main.min.js?d=24c91258"></script>
+<script>
+// Set the date we're counting down to
+(function () {
+var countDownDate = new Date(1627862400000).getTime();
+
+// Update the count down every 1 second
+var interval;
+var update = function () {
+  // Only run on the main page
+  if (!document.getElementById("demo")) return;
+
+  // Get today's date and time
+  var now = new Date().getTime();
+
+  // Find the distance between now and the count down date
+  var distance = countDownDate - now;
+
+  // Time calculations for days, hours, minutes and seconds
+  var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+  var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+  var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+  // Display the result in the element with id="demo"
+  document.getElementById("demo").innerHTML = "UIUCTF ENDS IN " + days + "d "  + hours + "h "
+  + minutes + "m " + seconds + "s ";
+
+  // If the count down is finished, write some text
+  if (distance < 0) {
+    clearInterval(interval);
+    document.getElementById("demo").innerHTML = "UIUCTF HAS ENDED";
+  }
+};
+interval = setInterval(update, 1000);
+update();
+})();
+</script>
+</body>
+</html>
